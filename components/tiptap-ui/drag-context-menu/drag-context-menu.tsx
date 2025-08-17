@@ -3,7 +3,7 @@
 import { offset } from '@floating-ui/react';
 import { DragHandle } from '@tiptap/extension-drag-handle-react';
 import type { Node as TiptapNode } from '@tiptap/pm/model';
-import * as React from 'react';
+import React from 'react';
 import { ChevronRightIcon } from '@/components/tiptap-icons/chevron-right-icon';
 // Icons
 import { GripVerticalIcon } from '@/components/tiptap-icons/grip-vertical-icon';

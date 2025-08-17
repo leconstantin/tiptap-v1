@@ -13,6 +13,7 @@ import { Placeholder, Selection } from '@tiptap/extensions';
 import { EditorContent, EditorContext, useEditor } from '@tiptap/react';
 // --- Tiptap Core Extensions ---
 import { StarterKit } from '@tiptap/starter-kit';
+import { UiState } from '@/components/tiptap-extension/ui-state-extension';
 import { HorizontalRule } from '@/components/tiptap-node/horizontal-rule-node/horizontal-rule-node-extension';
 // --- Tiptap Node ---
 import { ImageUploadNode } from '@/components/tiptap-node/image-upload-node/image-upload-node-extension';
@@ -246,6 +247,7 @@ export function SimpleEditor({ placeholder }: EditorProviderProps) {
           enableClickSelection: true,
         },
       }),
+      UiState,
       HorizontalRule,
       Placeholder.configure({
         placeholder,
@@ -273,7 +275,7 @@ export function SimpleEditor({ placeholder }: EditorProviderProps) {
         maxSize: MAX_FILE_SIZE,
         limit: 3,
         upload: handleImageUpload,
-        onError: (error) => console.error('Upload failed:', error),
+        // onError: (error) => console.error('Upload failed:', error),
       }),
     ],
     content,
