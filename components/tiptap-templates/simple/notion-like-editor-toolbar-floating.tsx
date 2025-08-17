@@ -78,8 +78,6 @@ export function NotionToolbarFloating() {
   return (
     <FloatingElement shouldShow={shouldShow}>
       <Toolbar variant="floating">
-        <ToolbarSeparator />
-
         <ToolbarGroup>
           <TurnIntoDropdown hideWhenUnavailable={true} />
         </ToolbarGroup>
