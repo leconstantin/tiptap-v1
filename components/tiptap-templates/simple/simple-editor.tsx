@@ -58,6 +58,7 @@ import {
 } from '@/components/tiptap-ui/link-popover';
 import { ListDropdownMenu } from '@/components/tiptap-ui/list-dropdown-menu';
 import { MarkButton } from '@/components/tiptap-ui/mark-button';
+import { SlashDropdownMenu } from '@/components/tiptap-ui/slash-dropdown-menu';
 import { TextAlignButton } from '@/components/tiptap-ui/text-align-button';
 import { UndoRedoButton } from '@/components/tiptap-ui/undo-redo-button';
 import { useCursorVisibility } from '@/hooks/use-cursor-visibility';
@@ -209,7 +210,7 @@ export function EditorContentArea() {
     >
       <DragContextMenu />
       <EmojiDropdownMenu />
-      {/* <SlashDropdownMenu /> */}
+      <SlashDropdownMenu />
       {/* <NotionToolbarFloating /> */}
 
       {/* {createPortal(<MobileToolbar />, document.body)} */}
