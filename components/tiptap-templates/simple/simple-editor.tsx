@@ -76,6 +76,7 @@ import React from 'react';
 import content from '@/components/tiptap-templates/simple/data/content.json' with {
   type: 'json',
 };
+import { NotionToolbarFloating } from './notion-like-editor-toolbar-floating';
 
 const MainToolbarContent = ({
   onHighlighterClick,
@@ -211,7 +212,7 @@ export function EditorContentArea() {
       <DragContextMenu />
       <EmojiDropdownMenu />
       <SlashDropdownMenu />
-      {/* <NotionToolbarFloating /> */}
+      <NotionToolbarFloating />
 
       {/* {createPortal(<MobileToolbar />, document.body)} */}
     </EditorContent>
