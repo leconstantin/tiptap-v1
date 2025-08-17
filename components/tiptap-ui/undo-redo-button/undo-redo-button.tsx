@@ -1,50 +1,46 @@
-"use client"
+'use client';
 
-import * as React from "react"
-
-// --- Lib ---
-import { parseShortcutKeys } from "@/lib/tiptap-utils"
-
-// --- Hooks ---
-import { useTiptapEditor } from "@/hooks/use-tiptap-editor"
-
+import React from 'react';
 // --- Tiptap UI ---
 import type {
   UndoRedoAction,
   UseUndoRedoConfig,
-} from "@/components/tiptap-ui/undo-redo-button"
+} from '@/components/tiptap-ui/undo-redo-button';
 import {
   UNDO_REDO_SHORTCUT_KEYS,
   useUndoRedo,
-} from "@/components/tiptap-ui/undo-redo-button"
-
+} from '@/components/tiptap-ui/undo-redo-button';
+import { Badge } from '@/components/tiptap-ui-primitive/badge';
 // --- UI Primitives ---
-import type { ButtonProps } from "@/components/tiptap-ui-primitive/button"
-import { Button } from "@/components/tiptap-ui-primitive/button"
-import { Badge } from "@/components/tiptap-ui-primitive/badge"
+import type { ButtonProps } from '@/components/tiptap-ui-primitive/button';
+import { Button } from '@/components/tiptap-ui-primitive/button';
+// --- Hooks ---
+import { useTiptapEditor } from '@/hooks/use-tiptap-editor';
+// --- Lib ---
+import { parseShortcutKeys } from '@/lib/tiptap-utils';
 
 export interface UndoRedoButtonProps
-  extends Omit<ButtonProps, "type">,
+  extends Omit<ButtonProps, 'type'>,
     UseUndoRedoConfig {
   /**
    * Optional text to display alongside the icon.
    */
-  text?: string
+  text?: string;
   /**
    * Optional show shortcut keys in the button.
    * @default false
    */
-  showShortcut?: boolean
+  showShortcut?: boolean;
 }
 
 export function HistoryShortcutBadge({
   action,
   shortcutKeys = UNDO_REDO_SHORTCUT_KEYS[action],
 }: {
-  action: UndoRedoAction
-  shortcutKeys?: string
+  action: UndoRedoAction;
+  shortcutKeys?: string;
 }) {
-  return <Badge>{parseShortcutKeys({ shortcutKeys })}</Badge>
+  return <Badge>{parseShortcutKeys({ shortcutKeys })}</Badge>;
 }
 
 /**
@@ -70,39 +66,38 @@ export const UndoRedoButton = React.forwardRef<
     },
     ref
   ) => {
-    const { editor } = useTiptapEditor(providedEditor)
+    const { editor } = useTiptapEditor(providedEditor);
     const { isVisible, handleAction, label, canExecute, Icon, shortcutKeys } =
       useUndoRedo({
         editor,
         action,
         hideWhenUnavailable,
         onExecuted,
-      })
+      });
 
     const handleClick = React.useCallback(
       (event: React.MouseEvent<HTMLButtonElement>) => {
-        onClick?.(event)
-        if (event.defaultPrevented) return
-        handleAction()
+        onClick?.(event);
+        if (event.defaultPrevented) return;
+        handleAction();
       },
       [handleAction, onClick]
-    )
+    );
 
     if (!isVisible) {
-      return null
+      return null;
     }
 
     return (
       <Button
-        type="button"
-        disabled={!canExecute}
-        data-style="ghost"
-        data-disabled={!canExecute}
-        role="button"
-        tabIndex={-1}
         aria-label={label}
-        tooltip={label}
+        data-disabled={!canExecute}
+        data-style="ghost"
+        disabled={!canExecute}
         onClick={handleClick}
+        tabIndex={-1}
+        tooltip={label}
+        type="button"
         {...buttonProps}
         ref={ref}
       >
@@ -119,8 +114,8 @@ export const UndoRedoButton = React.forwardRef<
           </>
         )}
       </Button>
-    )
+    );
   }
-)
+);
 
-UndoRedoButton.displayName = "UndoRedoButton"
+UndoRedoButton.displayName = 'UndoRedoButton';

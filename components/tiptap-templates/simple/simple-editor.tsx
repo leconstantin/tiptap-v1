@@ -10,7 +10,7 @@ import { Superscript } from '@tiptap/extension-superscript';
 import { TextAlign } from '@tiptap/extension-text-align';
 import { Color, TextStyle } from '@tiptap/extension-text-style';
 import { Typography } from '@tiptap/extension-typography';
-import { Placeholder, Selection } from '@tiptap/extensions';
+import { CharacterCount, Placeholder, Selection } from '@tiptap/extensions';
 import { EditorContent, EditorContext, useEditor } from '@tiptap/react';
 import { StarterKit } from '@tiptap/starter-kit';
 import { createPortal } from 'react-dom';
@@ -122,6 +122,7 @@ export function SimpleEditor({ placeholder }: EditorProviderProps) {
       }),
       UiState,
       HorizontalRule,
+      CharacterCount,
       Placeholder.configure({
         placeholder,
         emptyNodeClass: 'is-empty with-slash',

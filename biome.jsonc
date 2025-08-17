@@ -8,6 +8,9 @@
       },
       "nursery": {
         "useConsistentTypeDefinitions": "off"
+      },
+      "complexity": {
+        "useOptionalChain": "off"
       }
     }
   }

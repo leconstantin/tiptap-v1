@@ -9,13 +9,17 @@ import { Spacer } from '@/components/tiptap-ui-primitive/spacer';
 
 // --- Styles ---
 import './notion-like-editor-header.scss';
+import { CharCountButton } from '@/components/tiptap-ui/char-count-button/char-count-button';
 import { ThemeToggle } from './theme-toggle';
 
 export function NotionEditorHeader() {
   return (
     <header className="notion-like-editor-header">
       <Spacer />
+
       <div className="notion-like-editor-header-actions">
+        <CharCountButton />
+        <Separator />
         <ButtonGroup orientation="horizontal">
           <UndoRedoButton action="undo" />
           <UndoRedoButton action="redo" />
