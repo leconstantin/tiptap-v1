@@ -1,5 +1,5 @@
-import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor';
+import { ModeSwitcher } from '@/components/mode-switcher';
 
 export default function HomePage() {
-  return <SimpleEditor placeholder="Start writing..." />;
+  return <ModeSwitcher />;
 }
