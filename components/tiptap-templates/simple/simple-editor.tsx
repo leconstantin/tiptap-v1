@@ -4,6 +4,7 @@ import { Emoji, gitHubEmojis } from '@tiptap/extension-emoji';
 import { Highlight } from '@tiptap/extension-highlight';
 import { Image } from '@tiptap/extension-image';
 import { TaskItem, TaskList } from '@tiptap/extension-list';
+import { Mathematics } from '@tiptap/extension-mathematics';
 import { Subscript } from '@tiptap/extension-subscript';
 import { Superscript } from '@tiptap/extension-superscript';
 import { TextAlign } from '@tiptap/extension-text-align';
@@ -135,6 +136,7 @@ export function SimpleEditor({ placeholder }: EditorProviderProps) {
       TaskList,
       Color,
       TextStyle,
+      Mathematics,
       TaskItem.configure({ nested: true }),
       Highlight.configure({ multicolor: true }),
       Image,
